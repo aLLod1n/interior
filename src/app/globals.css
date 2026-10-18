@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+/* Design tokens — editorial gallery in warm white (see DESIGN.md) */
+@theme {
+  --color-ink: #1a1a1e;
+  --color-canvas: #f3f3f2;
+  --color-paper: #ffffff;
+  --color-ash: #d1d1d2;
+  --color-stone: #c1c2bd;
+  --color-linen: #e7e6e4;
+  --color-graphite: #4d4942;
+  --color-mist: #8d8d8f;
+  --color-bronze: #9a682c;
+  --color-slate: #4a626f;
+
+  /* Latin glyphs come from Instrument; Georgian glyphs fall through to Noto Georgian. */
+  --font-sans: var(--font-instrument-sans), var(--font-sans-georgian), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument-serif), var(--font-serif-georgian), ui-serif, Georgia, serif;
+
+  --text-caption: 15px;
+  --text-caption--line-height: 1.3;
+  --text-body: 16px;
+  --text-body--line-height: 1.55;
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 1.5;
+  --text-subheading: clamp(24px, 2.4vw, 32px);
+  --text-subheading--line-height: 1.12;
+  --text-heading: clamp(36px, 4.6vw, 52px);
+  --text-heading--line-height: 1.04;
+  --text-display: clamp(46px, 6.6vw, 74px);
+  --text-display--line-height: 0.98;
+  --text-monument: clamp(96px, 22vw, 340px);
+  --text-monument--line-height: 0.8;
+
+  --radius-logo: 9999px;
+}
+
+/* Georgian: Noto Serif Georgian is wider and heavier than Instrument Serif, so it runs lighter,
+   a step smaller and with more line height. It has no italic, so emphasis is tonal instead. */
+html:lang(ka) {
+  --text-subheading: clamp(20px, 2vw, 26px);
+  --text-subheading--line-height: 1.3;
+  --text-heading: clamp(26px, 3.4vw, 40px);
+  --text-heading--line-height: 1.25;
+  --text-display: clamp(26px, 5.4vw, 58px);
+  --text-display--line-height: 1.2;
+}
+
+html:lang(ka) .font-serif {
+  font-weight: 300;
+}
+
+html:lang(ka) em {
+  font-style: normal;
+}
+
+/* Uppercase would switch Georgian to Mtavruli capitals. */
+html:lang(ka) .uppercase {
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+blockquote {
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-canvas);
+}
+
+/* Gentle rise-in as sections scroll into view (browsers without scroll timelines just show them). */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 60%;
+    }
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .intro > * {
+    animation: fade-up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  .intro > :nth-child(2) {
+    animation-delay: 0.08s;
+  }
+  .intro > :nth-child(3) {
+    animation-delay: 0.16s;
+  }
+  .intro > :nth-child(4) {
+    animation-delay: 0.24s;
+  }
+}
+
+/* Horizontal photo strip on phones */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Select chevron drawn with hairlines, no icon font. */
+.select-chevron {
+  background-image: linear-gradient(45deg, transparent 50%, var(--color-ink) 50%),
+    linear-gradient(135deg, var(--color-ink) 50%, transparent 50%);
+  background-position:
+    calc(100% - 10px) 55%,
+    calc(100% - 5px) 55%;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+}
