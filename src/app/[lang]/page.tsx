@@ -235,7 +235,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             <p className="mt-6 max-w-md text-body-lg text-graphite">{t.contact.text}</p>
             <dl className="mt-12 border-t border-ink text-caption">
               {[
-                { label: t.contact.phone, value: <a href={`tel:${site.phone.replace(/\s/g, "")}`}>{site.phone}</a> },
+                { label: t.contact.phone, value: <a href={site.phoneHref}>{site.phone}</a> },
                 { label: t.contact.email, value: <a href={`mailto:${site.email}`}>{site.email}</a> },
                 { label: t.contact.showroom, value: site.address[lang] },
                 { label: "", value: <span className="text-graphite">{site.hours[lang]}</span> },

@@ -6,10 +6,11 @@ export const site = {
   name: "Forma",
   year: 2026,
   fullName: "Forma Workshop",
-  phone: "+995 555 00 00 00",
+  phone: "+995 579 28 08 26",
+  phoneHref: "tel:+995579280826",
   email: "hello@forma.example",
   instagram: "https://instagram.com/",
-  whatsapp: "https://wa.me/995555000000",
+  whatsapp: "https://wa.me/995579280826",
   tagline: {
     ka: "სამზარეულოები, თაროები და ავეჯი ინდივიდუალური ზომებით",
     en: "Kitchens, shelving & furniture made to measure",

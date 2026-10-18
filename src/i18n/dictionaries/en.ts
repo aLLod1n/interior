@@ -102,6 +102,8 @@ const en = {
   footer: {
     visit: "Visit",
     explore: "Explore",
+    callUs: "Call or message us",
+    call: "Call",
     madeIn: "Measured, made & installed in",
     credits: "Photo credits",
   },
