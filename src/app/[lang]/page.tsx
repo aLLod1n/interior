@@ -216,7 +216,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                   <span className="flex items-center gap-2 font-medium uppercase tracking-[0.06em]">
                     <Dot /> {p.quote!.author}
                   </span>
-                  <Link href={to(`/projects/${p.slug}`)} className="text-mist transition-colors hover:text-ink">
+                  <Link href={to(`/projects/${p.slug}`)} className="-my-2 py-2 text-mist transition-colors hover:text-ink">
                     {p.title} →
                   </Link>
                 </figcaption>
@@ -235,8 +235,8 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             <p className="mt-6 max-w-md text-body-lg text-graphite">{t.contact.text}</p>
             <dl className="mt-12 border-t border-ink text-caption">
               {[
-                { label: t.contact.phone, value: <a href={site.phoneHref}>{site.phone}</a> },
-                { label: t.contact.email, value: <a href={`mailto:${site.email}`}>{site.email}</a> },
+                { label: t.contact.phone, value: <a href={site.phoneHref} className="-my-3 block py-3">{site.phone}</a> },
+                { label: t.contact.email, value: <a href={`mailto:${site.email}`} className="-my-3 block py-3">{site.email}</a> },
                 { label: t.contact.showroom, value: site.address[lang] },
                 { label: "", value: <span className="text-graphite">{site.hours[lang]}</span> },
               ].map((row, i) => (

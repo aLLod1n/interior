@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { Instrument_Sans, Instrument_Serif, Noto_Sans_Georgian, Noto_Serif_Georgian } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { MobileCallBar } from "@/components/MobileCallBar";
 import { isLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { site } from "@/lib/site";
@@ -34,6 +35,13 @@ const serifKa = Noto_Serif_Georgian({
   weight: ["300", "400"],
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#f3f3f2",
+};
+
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
 }
@@ -63,10 +71,12 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
       lang={lang}
       className={`${sans.variable} ${serif.variable} ${sansKa.variable} ${serifKa.variable} antialiased`}
     >
-      <body className="flex min-h-screen flex-col">
+      {/* Bottom padding on phones keeps the footer clear of the fixed call bar. */}
+      <body className="flex min-h-screen flex-col pb-[calc(3.5rem+env(safe-area-inset-bottom))] sm:pb-0">
         <Header lang={lang} dict={dict} />
         <main className="flex-1">{children}</main>
         <Footer lang={lang} dict={dict} />
+        <MobileCallBar dict={dict} />
       </body>
     </html>
   );

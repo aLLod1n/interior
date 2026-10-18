@@ -27,7 +27,7 @@ export default async function ProjectsPage({ params }: PageProps<"/[lang]/projec
             <SectionLabel>{t.label}</SectionLabel>
             <h1 className="mt-8 max-w-4xl font-serif text-display">{t.title}</h1>
           </div>
-          <p className="font-serif text-display tabular-nums text-stone lg:col-span-3 lg:text-right">
+          <p className="hidden font-serif text-display tabular-nums text-stone lg:col-span-3 lg:block lg:text-right">
             {String(projects.length).padStart(2, "0")}
           </p>
         </div>

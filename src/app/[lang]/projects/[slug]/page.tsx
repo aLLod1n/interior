@@ -45,7 +45,7 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
       <Container className="pt-10 sm:pt-16">
         <Link
           href={localePath(lang, "/projects")}
-          className="text-caption uppercase tracking-[0.06em] text-mist transition-colors hover:text-ink"
+          className="-my-3 inline-block py-3 text-caption uppercase tracking-[0.06em] text-mist transition-colors hover:text-ink"
         >
           ← {t.back}
         </Link>

@@ -59,7 +59,7 @@ export function GhostButton({
     solid:
       "border border-ink bg-ink px-6 py-3.5 text-canvas hover:bg-transparent hover:text-ink",
     link:
-      "border-b border-ink pb-1 text-ink hover:border-graphite hover:text-graphite",
+      "border-b border-ink pt-3 pb-1.5 text-ink hover:border-graphite hover:text-graphite",
   }[variant];
 
   return (

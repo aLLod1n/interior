@@ -25,10 +25,10 @@ export default async function CreditsPage({ params }: PageProps<"/[lang]/credits
           {credits.map((c) => (
             <li key={c.file} className="grid gap-1 border-b border-ash py-4 md:grid-cols-[14rem_1fr_auto] md:gap-6">
               <span className="text-caption text-mist">{c.file.replace("/projects/", "")}</span>
-              <a href={c.source} target="_blank" rel="noreferrer" lang="en" className="hover:text-graphite">
+              <a href={c.source} target="_blank" rel="noreferrer" lang="en" className="py-1 hover:text-graphite">
                 {c.title} — {c.creator}
               </a>
-              <a href={c.licenseUrl} target="_blank" rel="noreferrer" className="text-caption text-mist hover:text-ink">
+              <a href={c.licenseUrl} target="_blank" rel="noreferrer" className="py-2 text-caption text-mist hover:text-ink">
                 {c.license}
               </a>
             </li>

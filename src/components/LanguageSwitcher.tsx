@@ -18,12 +18,12 @@ export function LanguageSwitcher({ lang, label }: { lang: Locale; label: string 
   }
 
   return (
-    <div role="group" aria-label={label} className="flex items-center text-caption uppercase tracking-[0.06em]">
+    <div role="group" aria-label={label} className="-mr-2 flex items-center text-caption uppercase tracking-[0.06em]">
       {locales.map((l, i) => (
         <span key={l} className="flex items-center">
-          {i > 0 && <span aria-hidden className="mx-2 text-mist">/</span>}
+          {i > 0 && <span aria-hidden className="text-mist">/</span>}
           {l === lang ? (
-            <span aria-current="true" title={localeNames[l].long} className="font-medium">
+            <span aria-current="true" title={localeNames[l].long} className="px-2 py-3 font-medium">
               {localeNames[l].short}
             </span>
           ) : (
@@ -33,7 +33,7 @@ export function LanguageSwitcher({ lang, label }: { lang: Locale; label: string 
               lang={l}
               title={localeNames[l].long}
               onClick={() => remember(l)}
-              className="text-mist hover:text-ink"
+              className="px-2 py-3 text-mist hover:text-ink"
             >
               {localeNames[l].short}
             </Link>

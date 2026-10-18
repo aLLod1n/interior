@@ -15,15 +15,17 @@ export function Header({ lang, dict }: { lang: Locale; dict: Dictionary }) {
         <Link
           href={localePath(lang, "/")}
           lang="en"
-          className="flex items-center gap-2.5 text-caption font-medium uppercase tracking-[0.14em]"
+          className="flex items-center gap-2.5 py-3 text-caption font-medium uppercase tracking-[0.14em]"
         >
           <span aria-hidden className="flex items-end gap-[3px]">
             <span className="h-3.5 w-2 rounded-t-full bg-ink" />
             <span className="size-2 rounded-full bg-ink" />
           </span>
-          {site.fullName}
+          {/* Full name from small tablets up; phones get the short name so the header never overflows. */}
+          <span className="sm:hidden">{site.name}</span>
+          <span className="hidden sm:inline">{site.fullName}</span>
         </Link>
-        <div className="flex items-center gap-5 sm:gap-8">
+        <div className="flex items-center gap-4 sm:gap-8">
           <nav aria-label="Main">
             <ul className="flex items-center text-caption uppercase tracking-[0.06em]">
               {getNav(dict).map((item) => (
@@ -33,11 +35,10 @@ export function Header({ lang, dict }: { lang: Locale; dict: Dictionary }) {
                     mobile.has(item.href) ? "flex" : "hidden sm:flex"
                   }`}
                 >
-                  <Link
-                    href={localePath(lang, item.href)}
-                    className="bg-[linear-gradient(currentColor,currentColor)] bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-0.5 transition-[background-size] duration-300 hover:bg-[length:100%_1px]"
-                  >
-                    {item.label}
+                  <Link href={localePath(lang, item.href)} className="group/nav inline-flex py-3">
+                    <span className="bg-[linear-gradient(currentColor,currentColor)] bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-0.5 transition-[background-size] duration-300 group-hover/nav:bg-[length:100%_1px]">
+                      {item.label}
+                    </span>
                   </Link>
                 </li>
               ))}
