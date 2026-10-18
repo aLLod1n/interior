@@ -12,11 +12,11 @@ export const site = {
   instagram: "https://instagram.com/",
   whatsapp: "https://wa.me/995579280826",
   tagline: {
-    ka: "სამზარეულოები, თაროები და ავეჯი ინდივიდუალური ზომებით",
+    ka: "სამზარეულო, თაროები და ავეჯი თქვენს ზომაზე",
     en: "Kitchens, shelving & furniture made to measure",
   } satisfies Localized,
   description: {
-    ka: "პატარა სახელოსნო, რომელიც აპროექტებს და ამზადებს ინდივიდუალურ სამზარეულოებს, თაროებს, კარადებსა და ავეჯს — ზომავს, ამზადებს და ამონტაჟებს ერთი და იგივე გუნდი.",
+    ka: "ვაპროექტებთ და ვამზადებთ სამზარეულოებს, თაროებს, კარადებსა და ავეჯს. ერთი გუნდი ზომავს, ამზადებს და ამონტაჟებს.",
     en: "A small workshop designing and building custom kitchens, shelving, wardrobes and furniture — measured, made and installed by the same team.",
   } satisfies Localized,
   city: { ka: "თბილისი", en: "Tbilisi" } satisfies Localized,

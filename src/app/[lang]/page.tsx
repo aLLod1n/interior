@@ -41,7 +41,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             </SectionLabel>
             <h1 className="mt-8 font-serif text-display">
               {t.hero.titleStart}
-              <em className="text-mist">{t.hero.titleEmphasis}</em>
+              <em className="text-bronze">{t.hero.titleEmphasis}</em>
               {t.hero.titleEnd}
             </h1>
           </div>
